@@ -1,9 +1,42 @@
 # Preemptive and Non-Preemptive
 
-<img width="579" alt="Untitled" src="https://github.com/VTV02/FreeRTOS/assets/93756924/69af3401-31e3-49eb-a691-27a3bb4be5ae">
+![image](https://github.com/VTV02/FreeRTOS/assets/93756924/fbc5129f-2e3f-4fab-88a8-045d2e1ad527)
+````cpp
+int main(void) {
+	xTaskCreate(func_1, "TASK_1", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
+	xTaskCreate(func_2, "TASK_2", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
+
+	vTaskStartScheduler();
+	for (;;);
+}
+
+void func_1(void) {
+	TaskHandle_t tsk1;
+	int a, b;
+	while (1) {
+		tsk1 = xTaskGetCurrentTaskHandle();
+		printf("\n %s IS RUNNING............................... \n", pcTaskGetName(tsk1));
+		printf("Enter a: ");
+		scanf_s("%d", &a);
+		printf("Enter b: ");
+		scanf_s("%d", &b);
+		printf("Additation %d + %d = %d ", a, b, a + b);
+		vTaskDelay(pdMS_TO_TICKS(2000));
+	}
+}
+
+void func_2(void) {
+	TaskHandle_t tsk2;
+	while (1) {
+		tsk2 = xTaskGetCurrentTaskHandle();
+		printf("\n %s IS RUNNING.............................. \n", pcTaskGetName(tsk2));
+		vTaskDelay(pdMS_TO_TICKS(2000));
+	}
+}
+````
 
 
-Ta muốn tính toán thì cho sẵn giá trị của a và b hoặc nhập a và b từ bên ngoài task vì hàm scanf là một hàm blocking nó sẽ đợi cho đến khi nào người dùng nhập nên gây vấn đề về thời gian và sự nhường quyền cho task khác mà RTOS thì rất khắc khe việc thời gian. 
+Ở chế độ không độc quyền task1 có ưu tiên cao hơn nên troang khoảng thời gian ta vẫn có thể nhập và tính toán trước khi task1 ngủ và task2 thực hiện 
 
 ## **Non-Preemptive**
 
