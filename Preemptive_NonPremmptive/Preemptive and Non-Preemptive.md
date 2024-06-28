@@ -9,9 +9,6 @@ Ta muốn tính toán thì cho sẵn giá trị của a và b hoặc nhập a v�
 
 <img width="960" alt="Untitled 1" src="https://github.com/VTV02/FreeRTOS/assets/93756924/99ee0b27-33e9-4384-97a1-3fc982d93bde">
 
-
-Ở chế độ độc quyền mới vào thì task2 có độ ưu tiên cao hơn nhưng ta cho nó ngủ 5s thì lúc này task1 sẽ được chạy nhưng do độc quyên nên task 1 chạy đến hết 5s task2 thức đòi quyên ưu tiên cao để chạy nhưng độc quyền nên task1 vẫn chạy trừ khi ta cho task1 ngủ thì nó mới trả cho task2. 
-
 ```cpp
 int main(void) {
 	xTaskCreate(func_1, "TASK_1", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
@@ -41,8 +38,9 @@ void func_2(void) {
 	}
 }
 ```
+<img width="950" alt="image" src="https://github.com/VTV02/FreeRTOS/assets/93756924/7bd36da9-c6d3-41f2-bb08-1190d8560842">
 
-Đây là chế độ độc quyền nên khi task2 ngủ mặc dù độ ưu tiên cao hơn thì vẫn không được chạy nến task1 đang chạy và không có vTaskDelay. 
+Đây là chế độ độc quyền và dựa trên độ ưu tiên nên khi task2 ngủ mặc dù độ ưu tiên cao hơn thì vẫn không được chạy lúc này Task1 sẽ chạy đến khi task 2 ngủ xong 10ms thì nó sẽ thức dậy và đòi quyền chạy lúc này task1 vẫn tiếp tục chạy do độc quyền nếu không có vTaskDelay trong task1.
 
 <img width="463" alt="Untitled 2" src="https://github.com/VTV02/FreeRTOS/assets/93756924/02193617-24e6-48de-8b83-ab7952c3400d">
 
