@@ -59,13 +59,13 @@ void func_2(void) {
 Do Task2 có độ ưu tiên cao hơn nên khi vào nó sẽ chạy task2 trước. Do đây cũng là chế độ PREEMPTION(Không độc quyền) nên khi nó chạy xong gặp lệnh vTaskDelay thì nó sẽ ngủ 10ms →1 tick trong khi này thì task1 sẽ được đưa lên chạy và đến khi hết 1 tick thì task2 sẽ đòi lại chạy cứ như thế.
 
 Nếu ko dùng hàm vTaskDelay cho task1 thì task1 sẽ không nhường quyền cho ai hết vì nó ở vòng lặp while nên nó sẽ chạy mãi. 
+<img width="150" alt="Untitled 1" src="https://github.com/VTV02/FreeRTOS/assets/93756924/6056dc38-4e3f-43ba-a201-b229bab3896e">
 
-[![Untitled](Ca%CC%82%CC%81u%20tru%CC%81c%20chu%CC%9Bo%CC%9Bng%20tri%CC%80nh%20FreeRTOS%20va%CC%80%20ca%CC%81ch%20ta%CC%A3%201f90812193fb4d1d8e075d0f74dc16d5/Untitled%201.png)](https://www.notion.so/C-u-tr-c-ch-ng-tr-nh-FreeRTOS-v-c-ch-t-o-Task-1f90812193fb4d1d8e075d0f74dc16d5?pvs=4#cc5df164046d4d44afe821c11e0de694)
 
-[![Untitled](Ca%CC%82%CC%81u%20tru%CC%81c%20chu%CC%9Bo%CC%9Bng%20tri%CC%80nh%20FreeRTOS%20va%CC%80%20ca%CC%81ch%20ta%CC%A3%201f90812193fb4d1d8e075d0f74dc16d5/Untitled%202.png)
-](https://www.notion.so/C-u-tr-c-ch-ng-tr-nh-FreeRTOS-v-c-ch-t-o-Task-1f90812193fb4d1d8e075d0f74dc16d5?pvs=4#9cfa74953e4949d696a9fa486d4fdd9b)
-[![Untitled](Ca%CC%82%CC%81u%20tru%CC%81c%20chu%CC%9Bo%CC%9Bng%20tri%CC%80nh%20FreeRTOS%20va%CC%80%20ca%CC%81ch%20ta%CC%A3%201f90812193fb4d1d8e075d0f74dc16d5/Untitled%203.png)
-](https://www.notion.so/C-u-tr-c-ch-ng-tr-nh-FreeRTOS-v-c-ch-t-o-Task-1f90812193fb4d1d8e075d0f74dc16d5?pvs=4#ad81720455e041f09b3f90ab48cb541b)
-[![Untitled](Ca%CC%82%CC%81u%20tru%CC%81c%20chu%CC%9Bo%CC%9Bng%20tri%CC%80nh%20FreeRTOS%20va%CC%80%20ca%CC%81ch%20ta%CC%A3%201f90812193fb4d1d8e075d0f74dc16d5/Untitled%204.png)
-](https://www.notion.so/C-u-tr-c-ch-ng-tr-nh-FreeRTOS-v-c-ch-t-o-Task-1f90812193fb4d1d8e075d0f74dc16d5?pvs=4#e27195ea874342d58170fb2b176f99a1)
+<img width="622" alt="Untitled 2" src="https://github.com/VTV02/FreeRTOS/assets/93756924/94de016a-bf93-4e76-8b50-f8aef3a38a92">
+
+
+<img width="664" alt="Untitled 3" src="https://github.com/VTV02/FreeRTOS/assets/93756924/8c3576fe-2f14-423e-95ef-ad84ea391f61">
+<img width="381" alt="Untitled 4" src="https://github.com/VTV02/FreeRTOS/assets/93756924/63e85cb8-2bf6-4ccf-ab66-8080019f2413">
+
 Nếu ta không dùng vTaskDelay cho task1 thì mới đầu mở lên thì task2 sẽ được chạy 1 lần duy nhất sau đó task1 chạy và chạy mãi.
