@@ -1,12 +1,14 @@
 # Preemptive and Non-Preemptive
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/073dc359-76c3-45a3-b87d-59863315a977/Untitled.png)
+<img width="579" alt="Untitled" src="https://github.com/VTV02/FreeRTOS/assets/93756924/69af3401-31e3-49eb-a691-27a3bb4be5ae">
+
 
 Ta muốn tính toán thì cho sẵn giá trị của a và b hoặc nhập a và b từ bên ngoài task vì hàm scanf là một hàm blocking nó sẽ đợi cho đến khi nào người dùng nhập nên gây vấn đề về thời gian và sự nhường quyền cho task khác mà RTOS thì rất khắc khe việc thời gian. 
 
 ## **Non-Preemptive**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/ddb81a37-14fa-4b77-b095-4b6ddebc4a03/Untitled.png)
+<img width="960" alt="Untitled 1" src="https://github.com/VTV02/FreeRTOS/assets/93756924/99ee0b27-33e9-4384-97a1-3fc982d93bde">
+
 
 Ở chế độ độc quyền mới vào thì task2 có độ ưu tiên cao hơn nhưng ta cho nó ngủ 5s thì lúc này task1 sẽ được chạy nhưng do độc quyên nên task 1 chạy đến hết 5s task2 thức đòi quyên ưu tiên cao để chạy nhưng độc quyền nên task1 vẫn chạy trừ khi ta cho task1 ngủ thì nó mới trả cho task2. 
 
@@ -38,11 +40,12 @@ void func_2(void) {
 
 Đây là chế độ độc quyền nên khi task2 ngủ mặc dù độ ưu tiên cao hơn thì vẫn không được chạy nến task1 đang chạy và không có vTaskDelay. 
 
-!![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/84eb3b59-1305-4c73-9033-7763ba410475/Untitled.png)
+<img width="463" alt="Untitled 2" src="https://github.com/VTV02/FreeRTOS/assets/93756924/02193617-24e6-48de-8b83-ab7952c3400d">
+
 
 ## **Preemptive**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/05ba9696-fd96-446f-8f27-b688763f77e6/Untitled.png)
+<img width="960" alt="Untitled 3" src="https://github.com/VTV02/FreeRTOS/assets/93756924/c8759b4c-a298-428e-91ae-848bc96a0b56">
 
 ```cpp
 void func_1(void) {
@@ -71,6 +74,7 @@ void func_2(void) {
 
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/2f03494b-0da4-4aa0-a07e-889972a3569b/Untitled.png)
+![Untitled 4](https://github.com/VTV02/FreeRTOS/assets/93756924/c53afc35-a298-423a-9231-11048944c0b5)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/77e65276-0df9-483d-acb1-a8b1793896bc/714e1d3c-170a-46ff-a33c-33712349aea4/Untitled.png)
+![Untitled 5](https://github.com/VTV02/FreeRTOS/assets/93756924/d36db1eb-cac6-46a5-a77f-901734b07794)
+
