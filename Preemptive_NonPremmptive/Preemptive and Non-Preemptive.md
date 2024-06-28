@@ -13,28 +13,32 @@ Ta muốn tính toán thì cho sẵn giá trị của a và b hoặc nhập a v�
 Ở chế độ độc quyền mới vào thì task2 có độ ưu tiên cao hơn nhưng ta cho nó ngủ 5s thì lúc này task1 sẽ được chạy nhưng do độc quyên nên task 1 chạy đến hết 5s task2 thức đòi quyên ưu tiên cao để chạy nhưng độc quyền nên task1 vẫn chạy trừ khi ta cho task1 ngủ thì nó mới trả cho task2. 
 
 ```cpp
+int main(void) {
+	xTaskCreate(func_1, "TASK_1", configMINIMAL_STACK_SIZE, NULL, 3, NULL);
+	xTaskCreate(func_2, "TASK_2", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
+
+	vTaskStartScheduler();
+	for (;;);
+}
+
 void func_1(void) {
 	TaskHandle_t tsk1;
-	int a, b;
-	a = 10;
-	b = 20;
 	while (1) {
 		tsk1 = xTaskGetCurrentTaskHandle();
 		printf("\n %s IS RUNNING............................... \n", pcTaskGetName(tsk1));
-		printf("Addition %d + %d = %d ", a, b, a + b);
-
+		Sleep(1000);
+		
 	}
-	
 }
 
 void func_2(void) {
 	TaskHandle_t tsk2;
-	vTaskDelay(pdMS_TO_TICKS(5000));
 	while (1) {
 		tsk2 = xTaskGetCurrentTaskHandle();
-		printf("\n %s IS RUNNING.............................. \n", pcTaskGetName(tsk2));	
+		printf("\n %s IS RUNNING.............................. \n", pcTaskGetName(tsk2));
+		Sleep(1000);
+		vTaskDelay(pdMS_TO_TICKS(10));
 	}
-	
 }
 ```
 
