@@ -67,3 +67,20 @@ trong thời gian thực hiện thì SEM=0 nên task2 bị blocked không chạy
 
 <img width="960" alt="image" src="https://github.com/VTV02/FreeRTOS/assets/93756924/22dcb1bb-c956-4873-acbc-d93313b8f2c3">
 
+# Trong thời gian đợi take ta có thể cho task làm việc khác bằng cách không cho đợi portMAX_DELAY()
+<img width="543" alt="image" src="https://github.com/VTV02/FreeRTOS/assets/93756924/60b806de-0de1-4705-9129-47d4d72fea6b">
+
+Trong lúc đợi thì task có thể làm việc khác sau khi task kia xong thì nó vô CS làm cũng được. Chứ không đợi mãi vì trong Task không chỉ làm mỗi công việc của CS.
+
+<img width="960" alt="image" src="https://github.com/VTV02/FreeRTOS/assets/93756924/9258ef9f-edc1-4662-92ca-47595f3300f8">
+
+
+
+
+
+
+
+
+
+
+
