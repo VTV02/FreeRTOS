@@ -74,7 +74,7 @@ void func_2(void) {
 <img width="950" alt="image" src="https://github.com/VTV02/FreeRTOS/assets/93756924/7bd36da9-c6d3-41f2-bb08-1190d8560842">
 
 Đây là chế độ độc quyền và dựa trên độ ưu tiên nên khi task2 ngủ mặc dù độ ưu tiên cao hơn thì vẫn không được chạy lúc này Task1 sẽ chạy đến khi task 2 ngủ xong 10ms thì nó sẽ thức dậy và đòi quyền chạy lúc này task1 vẫn tiếp tục chạy do độc quyền nếu không có vTaskDelay trong task1.
-->Hiểu đơn giản anh đòi là chuyện của anh tôi ngủ anh mới được lấy. Còn không ngủ thì never được lấy.
+->Hiểu đơn giản anh đòi là chuyện của anh, tôi ngủ anh mới được lấy. Còn không ngủ thì never được lấy.
 
 <img width="463" alt="Untitled 2" src="https://github.com/VTV02/FreeRTOS/assets/93756924/02193617-24e6-48de-8b83-ab7952c3400d">
 
